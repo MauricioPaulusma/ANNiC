@@ -16,12 +16,20 @@
 #include "matrix.h"
 #include "random.h"
 
+/*
+    Function prototypes
+*/
 int load_training_data(struct image *pstruct, int nr_of_img); // prototype for load_training_data function
 
+/*
+    Global Variables
+*/
+struct image training_data[TRAINING_SIZE]; // create structures for storing the training data
 int neurons [] = {784,10,10,10};
 
-struct image training_data[TRAINING_SIZE]; // create structures for storing the training data
-
+/*
+    Main
+*/
 int main(int argc, const char * argv[])
 {
     printf("Program started..\n");
@@ -32,33 +40,31 @@ int main(int argc, const char * argv[])
     else
         printf("training data loaded succesfully\n");
     
-    // Create the neural net
-    // array of pointers for the memory given by malloc
-    float *pwl[LAYERS];
-    float *pbl[LAYERS];
-    float *pzl[LAYERS];
-    float *pal[LAYERS];
+    struct neural_net ANN; // Creating a Neural Net
+    
+    ANN.nr_of_layers = LAYERS; // specify the amount of layers
+    ANN.neurons = &neurons[0]; // assign the adress of the neurons array containing the size information of each layer
     
     // create the matrices for each layer and assign the start adress of each matrix to the pointers
-    pal[0] = malloc(sizeof(float)*neurons[0]*1); // the first layer only has an activation layer
-    for (int i = 1; i < LAYERS; i++)
+    ANN.pal[0] = malloc(sizeof(float)*(*ANN.neurons+0)*1); // the first layer only has an activation layer
+    for (int i = 1; i < ANN.nr_of_layers; i++)
     {
-        pwl[i] = malloc(sizeof(float)* neurons[i] *neurons[i-1]);
-        pbl[i] = malloc(sizeof(float)* neurons[i] * 1);
-        pzl[i] = malloc(sizeof(float)* neurons[i] * 1);
-        pal[i] = malloc(sizeof(float)* neurons[i] * 1);
+        ANN.pwl[i] = malloc(sizeof(float)* (*(ANN.neurons+i))*(*(ANN.neurons+i-1)));
+        ANN.pbl[i] = malloc(sizeof(float)* (*(ANN.neurons+i)) * 1);
+        ANN.pzl[i] = malloc(sizeof(float)* (*(ANN.neurons+i)) * 1);
+        ANN.pal[i] = malloc(sizeof(float)* (*(ANN.neurons+i)) * 1);
     }
     
-    for (int i = 1; i < LAYERS; i++) // initialize the weights and the biases with random values
+    for (int i = 1; i < ANN.nr_of_layers; i++) // initialize the weights and the biases with random values
     {
-        init_rand(pwl[i], neurons[i]*neurons[i-1]);
-        init_rand(pbl[i], neurons[i]);
+        init_rand(ANN.pwl[i], (*(ANN.neurons+i))*(*(ANN.neurons+i-1)));
+        init_rand(ANN.pbl[i], (*(ANN.neurons+i)));
     }
     
-    for(int i = 0; i < TRAINING_SIZE; i++)
-    {
-        feedforward(&training_data[i], &pwl[0], &pbl[0], &pzl[0], &pal[0], &neurons[0], 1);
-    }
+//    for(int i = 0; i < TRAINING_SIZE; i++)
+//    {
+//        feedforward(&training_data[i], &pwl[0], &pbl[0], &pzl[0], &pal[0], &neurons[0], 1);
+//    }
     
     printf("quiting program...");
     return 1;

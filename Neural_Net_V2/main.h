@@ -12,3 +12,16 @@ struct image
     unsigned char digit; // this char holds the value of the digit
 };
 
+/*
+ Structure for holding the neural net
+ */
+struct neural_net
+{
+    float *pwl[LAYERS];
+    float *pbl[LAYERS];
+    float *pzl[LAYERS];
+    float *pal[LAYERS];
+    int nr_of_layers;
+    int* neurons;
+};
+
