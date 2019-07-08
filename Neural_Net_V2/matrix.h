@@ -12,7 +12,7 @@
 float give_matrix(float *pm, int scol, int row, int col);
 void matrix_transpose(void *pma, void *pmb, int n_row, int n_col);
 void init_matrix(float *pm, int size_row, int size_col);
-void matrix_sigmoid(float *pmz, float *pma, int srow, int scol);
+void matrix_sigmoid(float *pma, float *pmz, int srow, int scol);
 void matrix_sigmoid_prime(float *pmz, float *pmr, int srow, int scol);
 void matrix_hadamard(float *pmc, float *pma, float *pmb, int s_row, int s_col);
 void matrix_add(float *pmc, float *pma, float *pmb, int srow, int scol);

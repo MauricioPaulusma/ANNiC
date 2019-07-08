@@ -25,7 +25,7 @@ int load_training_data(struct image *pstruct, int nr_of_img); // prototype for l
     Global Variables
 */
 struct image training_data[TRAINING_SIZE]; // create structures for storing the training data
-int neurons [] = {784,10,10,10};
+int neurons [] = {784,10,10};
 
 /*
     Main
@@ -49,10 +49,10 @@ int main(int argc, const char * argv[])
     ANN.pal[0] = malloc(sizeof(float)*(*ANN.neurons+0)*1); // the first layer only has an activation layer
     for (int i = 1; i < ANN.nr_of_layers; i++)
     {
-        ANN.pwl[i] = malloc(sizeof(float)* (*(ANN.neurons+i))*(*(ANN.neurons+i-1)));
-        ANN.pbl[i] = malloc(sizeof(float)* (*(ANN.neurons+i)) * 1);
-        ANN.pzl[i] = malloc(sizeof(float)* (*(ANN.neurons+i)) * 1);
-        ANN.pal[i] = malloc(sizeof(float)* (*(ANN.neurons+i)) * 1);
+        ANN.pwl[i] = malloc(sizeof(float) * (*(ANN.neurons+i))*(*(ANN.neurons+i-1)));
+        ANN.pbl[i] = malloc(sizeof(float) * (*(ANN.neurons+i)) * 1);
+        ANN.pzl[i] = malloc(sizeof(float) * (*(ANN.neurons+i)) * 1);
+        ANN.pal[i] = malloc(sizeof(float) * (*(ANN.neurons+i)) * 1);
     }
     
     for (int i = 1; i < ANN.nr_of_layers; i++) // initialize the weights and the biases with random values
@@ -60,7 +60,19 @@ int main(int argc, const char * argv[])
         init_rand(ANN.pwl[i], (*(ANN.neurons+i))*(*(ANN.neurons+i-1)));
         init_rand(ANN.pbl[i], (*(ANN.neurons+i)));
     }
-    
+
+#ifdef FF_CHECK
+    for (int i = 1; i < ANN.nr_of_layers; i++)
+    {
+        printf("printing layer %d:\n", i);
+        print_matrix(ANN.pwl[i], *(ANN.neurons+i), *(ANN.neurons+i-1));
+        printf("\n");
+        print_matrix(ANN.pbl[i], *(ANN.neurons+i), 1);
+    }
+
+    init_matrix(ANN.pal[0], *ANN.neurons+0, 1);
+#endif
+    feedforward2(&training_data[0], &ANN, 1);
 //    for(int i = 0; i < TRAINING_SIZE; i++)
 //    {
 //        feedforward(&training_data[i], &pwl[0], &pbl[0], &pzl[0], &pal[0], &neurons[0], 1);

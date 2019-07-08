@@ -236,7 +236,7 @@ void matrix_sigmoid_prime(float *pmz, float *pmr, int srow, int scol)
  Returns: nothing
  
  */
-void matrix_sigmoid(float *pmz, float *pma, int srow, int scol)
+void matrix_sigmoid(float *pma, float *pmz, int srow, int scol)
 {
     for (int i = 0; i < srow; i++)
     {

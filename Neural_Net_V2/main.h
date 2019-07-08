@@ -1,7 +1,15 @@
+/*
+ Debug defines
+*/
+//#define FF_CHECK
+//#define DEBUG_FF
+/*
+ Other defines
+*/
 #define TRAINING_SIZE 50000
 #define ROWS 28
 #define COLL 28
-#define LAYERS 4
+#define LAYERS 3
 
 /*
  Structure for holding the training data
