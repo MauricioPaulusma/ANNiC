@@ -119,49 +119,60 @@ void feedforward(struct image *pimage, float **pwl, float **pbl, float **pzl, fl
  
  returns: nothing
  */
-void feedforward2(struct image *pimage, struct neural_net *ANN, int FF_Evaluate)
+void feedforward2(struct image* pimage, struct neural_net* ANN, int FF_Evaluate, int debug)
 {
+
+    if(debug == 0)
+        load_image_in_a(ANN->pal[0], pimage); // load al0 (input layer) with the image data
+    if(debug == 1)
+    {
+        printf("feedforward function is in hard debugging mode\n");
+        for (int i = 0; i<(*ANN->neurons); i++)
+        {
+            printf("\nenter value for: al[%d][0]: ", i);
+            float value;
+            scanf("%f", &value);
+            printf("%f",value);
+            set_matrix(ANN->pal[0], 1, i, 0, value); // set the appropriate neuron to 1 (dependent on the input image)
+        }
+        printf("\ncreated matrix:\n");
+        print_matrix(ANN->pal[0], (*ANN->neurons), 1);
     
-#ifndef FF_CHECK
-    load_image_in_a(ANN->pal[0], pimage); // load al0 (input layer) with the image data
-#ifdef DEBUG_FF
-    printf("Input to neural net: %d", pimage->digit);
-#endif
-#else
-    printf("feedforward function is in hard debugging mode\n");
-#endif
-    
+    }
     for (int i = 1; i < ANN->nr_of_layers; i++) // feedforward trough the network
     {
 
-#ifdef DEBUG_FF
-        printf("\n Weight matrix[%d] = \n", i);
-        print_matrix(ANN->pwl[i], *((ANN->neurons)+i), *((ANN->neurons)+i-1));
-        
-        printf("\n 1. Activation matrix[%d] = \n", i-1);
-        print_matrix(ANN->pal[i-1], *((ANN->neurons)+i-1), 1);
-#endif
+        if(debug == 1)
+        {
+            printf("\n Weight matrix[%d] = \n", i);
+            print_matrix(ANN->pwl[i], *((ANN->neurons)+i), *((ANN->neurons)+i-1));
+            
+            printf("\n 1. Activation matrix[%d] = \n", i-1);
+            print_matrix(ANN->pal[i-1], *((ANN->neurons)+i-1), 1);
+        }
         
         matrix_mult(ANN->pzl[i], ANN->pwl[i], ANN->pal[i-1], *((ANN->neurons)+i), *((ANN->neurons)+i-1), *((ANN->neurons)+i-1), 1); // zl[i] = wl[i] * al[i-1];
     
-#ifdef DEBUG_FF
-        printf("\n Weighted input matrix[%d]\n", i);
-        print_matrix(ANN->pzl[i], *((ANN->neurons)+i), 1);
-        
-        printf("\n Bias matrix[%d]\n", i);
-        print_matrix(ANN->pbl[i], *((ANN->neurons)+i), 1);
-#endif
+        if(debug == 1)
+        {
+            printf("\n Weighted input matrix[%d]\n", i);
+            print_matrix(ANN->pzl[i], *((ANN->neurons)+i), 1);
+            
+            printf("\n Bias matrix[%d]\n", i);
+            print_matrix(ANN->pbl[i], *((ANN->neurons)+i), 1);
+        }
         
         matrix_add(ANN->pzl[i], ANN->pzl[i], ANN->pbl[i], *((ANN->neurons)+i), 1); //   zl[i] = zl[i] + bl[i]
         matrix_sigmoid(ANN->pal[i], ANN->pzl[i], *((ANN->neurons)+i), 1); // apply the sigmoid function to the matrix zl[i] and store the result in pal[i]
         
-#ifdef DEBUG_FF
-        printf("\n Weighted input matrix after addition[%d]\n", i);
-        print_matrix(ANN->pzl[i], *((ANN->neurons)+i), 1);
-        
-        printf("\n 2. Activation matrix[%d]\n", i);
-        print_matrix(ANN->pal[i], *((ANN->neurons)+i), 1);
-#endif
+        if(debug == 1)
+        {
+            printf("\n Weighted input matrix after addition[%d]\n", i);
+            print_matrix(ANN->pzl[i], *((ANN->neurons)+i), 1);
+            
+            printf("\n 2. Activation matrix[%d]\n", i);
+            print_matrix(ANN->pal[i], *((ANN->neurons)+i), 1);
+        }
         
     }
     

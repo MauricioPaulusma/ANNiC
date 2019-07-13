@@ -15,7 +15,7 @@
 #include "feedforward.h"
 #include "matrix.h"
 #include "random.h"
-
+#include "SGD.h"
 /*
     Function prototypes
 */
@@ -61,21 +61,41 @@ int main(int argc, const char * argv[])
         init_rand(ANN.pbl[i], (*(ANN.neurons+i)));
     }
 
-#ifdef FF_CHECK
-    for (int i = 1; i < ANN.nr_of_layers; i++)
-    {
-        printf("printing layer %d:\n", i);
-        print_matrix(ANN.pwl[i], *(ANN.neurons+i), *(ANN.neurons+i-1));
-        printf("\n");
-        print_matrix(ANN.pbl[i], *(ANN.neurons+i), 1);
-    }
-
-    init_matrix(ANN.pal[0], *ANN.neurons+0, 1);
-#endif
-    feedforward2(&training_data[0], &ANN, 1);
-//    for(int i = 0; i < TRAINING_SIZE; i++)
+//    float* pdCdW[LAYERS];
+//    float* pdCdB[LAYERS];
+//    for (int i = 1; i<LAYERS; i++)
 //    {
-//        feedforward(&training_data[i], &pwl[0], &pbl[0], &pzl[0], &pal[0], &neurons[0], 1);
+//        pdCdW[i] = malloc(sizeof(float)*(*(ANN.neurons+i-1))*(*(ANN.neurons+i)));
+//        pdCdB[i] = malloc(sizeof(float)*(*(ANN.neurons+i)));
+//    }
+//
+//    backpropagation2(NULL, &pdCdW[0], &pdCdB[0], &ANN, 1);
+    
+    SGD(&training_data[0], &ANN, 30, 10, 3.0);
+    
+
+//#ifdef FF_CHECK
+//    for (int i = 1; i < ANN.nr_of_layers; i++)
+//    {
+//        printf("printing layer %d:\n", i);
+//        print_matrix(ANN.pwl[i], *(ANN.neurons+i), *(ANN.neurons+i-1));
+//        printf("\n");
+//        print_matrix(ANN.pbl[i], *(ANN.neurons+i), 1);
+//    }
+//
+//    init_matrix(ANN.pal[0], *ANN.neurons+0, 1);
+//#endif
+//    for (int i = 0; i<TRAINING_SIZE; i++)
+//    {
+//        ret = backpropagation2(&training_data[i], &pdCdW[0], &pdCdB[0], &ANN);
+//        if(ret == 0)
+//            printf("Error allocating memory");
+//    }
+    
+//    for (int i = 0; i<TRAINING_SIZE; i++)
+//    {
+//        printf("training data[%d]:\n", i);
+//        feedforward2(&training_data[i], &ANN, 1);
 //    }
     
     printf("quiting program...");

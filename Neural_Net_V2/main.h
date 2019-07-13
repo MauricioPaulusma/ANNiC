@@ -3,6 +3,7 @@
 */
 //#define FF_CHECK
 //#define DEBUG_FF
+#define Evaluate_SGD
 /*
  Other defines
 */

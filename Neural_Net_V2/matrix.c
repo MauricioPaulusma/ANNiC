@@ -290,3 +290,24 @@ void matrix_transpose(void *pma, void *pmb, int n_row, int n_col)
         }
     }
 }
+
+/*
+ Name function: memclear
+ 
+ Description:
+ This function clears a block of memory pointed by pmem (i.e. it initializes each byte to 0).
+ 
+ Usage:
+ void *pmem = pointer to the block of memory that needs to be cleared.
+ 
+ int size = number of bytes of the memory block.
+ 
+ */
+void memclear(void *pmem, int size)
+{
+    unsigned char *pchar = pmem; // cast the void pointer to a char (so it increments by a byte)
+    for (int i = 0; i < size; i++)
+    {
+        *(pchar+i) = 0;
+    }
+}

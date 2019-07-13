@@ -23,5 +23,6 @@ void set_matrix(float *pm, int scol, int row, int col, float val);
 float give_matrix(float *pm, int scol, int row, int col);
 float sigmoid_prime(float z);
 float sigmoid(float z);
+void memclear(void *pmem, int size);
 
 #endif /* matrix_h */
