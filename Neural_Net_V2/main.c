@@ -25,7 +25,7 @@ int load_training_data(struct image *pstruct, int nr_of_img); // prototype for l
     Global Variables
 */
 struct image training_data[TRAINING_SIZE]; // create structures for storing the training data
-int neurons [] = {784,10,10};
+int neurons [] = {784,10,10,10,10};
 
 /*
     Main
@@ -65,13 +65,37 @@ int main(int argc, const char * argv[])
 //    float* pdCdB[LAYERS];
 //    for (int i = 1; i<LAYERS; i++)
 //    {
-//        pdCdW[i] = malloc(sizeof(float)*(*(ANN.neurons+i-1))*(*(ANN.neurons+i)));
+//        pdCdW[i] = malloc(sizeof(float)*(*(ANN.neurons+i))*(*(ANN.neurons+i-1)));
 //        pdCdB[i] = malloc(sizeof(float)*(*(ANN.neurons+i)));
 //    }
 //
 //    backpropagation2(NULL, &pdCdW[0], &pdCdB[0], &ANN, 1);
+//    printf("\nBACK IN MAIN\n");
+//    
+//    for (int i = 1; i<LAYERS; i++)
+//    {
+//        printf("\ndCdB[%d]:\n",i);
+//        print_matrix(pdCdB[i], (*(ANN.neurons+i)), 1);
+//        printf("\ndCdW[%d]:\n",i);
+//        print_matrix(pdCdW[i], (*(ANN.neurons+i)), (*(ANN.neurons+i-1)));
+//    }
+//
+    for (int j = 0; j<30; j++)
+    {
+        for (int i = 0; i<TRAINING_SIZE/BATCH_SIZE; i++)
+        {
+            update_minibatch2(&training_data[i*BATCH_SIZE], &ANN, BATCH_SIZE, 1.0);
+        }
+        //data_shuffle(&training_data[0], TRAINING_SIZE); // shuffle the training data
+    }
     
-    SGD(&training_data[0], &ANN, 30, 10, 3.0);
+    for (int i = 0; i<TRAINING_SIZE; i++)
+    {
+        feedforward2(&training_data[i], &ANN, 1, 0);
+        char get = getchar();
+    }
+    
+//    SGD(&training_data[0], &ANN, 30, 1, 3.0);
     
 
 //#ifdef FF_CHECK

@@ -4,13 +4,15 @@
 //#define FF_CHECK
 //#define DEBUG_FF
 #define Evaluate_SGD
+//#define DEBUG_UM
 /*
  Other defines
 */
 #define TRAINING_SIZE 50000
+#define BATCH_SIZE 20
 #define ROWS 28
 #define COLL 28
-#define LAYERS 3
+#define LAYERS 5
 
 /*
  Structure for holding the training data

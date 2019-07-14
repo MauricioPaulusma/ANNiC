@@ -152,7 +152,7 @@ int update_minibatch2(struct image *pimage, struct neural_net* ANN, int batch_si
     {
         for (int j = 0; j < *(ANN->neurons+i); j++)
         {
-            set_matrix(ANN->pbl[i], 1, j, 0, give_matrix(ANN->pbl[i], 1, j, 0) + (*(pAcc_dCdB[i]+j) * -1.0 * (eta))); // takes the current value of the Bias and accumulates it with dC/dB*(-eta). I.e. Bias = Bias + (dC/dB*(-eta))
+            set_matrix(ANN->pbl[i], 1, j, 0, give_matrix(ANN->pbl[i], 1, j, 0) + give_matrix(pAcc_dCdB[i], 1, j, 0) * -1.0 * (eta)); // takes the current value of the Bias and accumulates it with dC/dB*(-eta). I.e. Bias = Bias + (dC/dB*(-eta))
             for (int k = 0; k < *(ANN->neurons+i-1); k++)
             {
                 set_matrix(ANN->pwl[i], *(ANN->neurons+i-1), j, k, give_matrix(ANN->pwl[i], *(ANN->neurons+i-1), j, k) + give_matrix(pAcc_dCdW[i], *(ANN->neurons+i-1), j, k) * -1.0 * (eta)); // takes the current value of the weight and accumulates it with dC/dW*(-eta). I.e. Weight = Weight + (dC/dW*(-eta))
