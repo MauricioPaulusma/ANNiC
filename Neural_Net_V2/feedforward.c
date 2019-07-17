@@ -119,7 +119,7 @@ void feedforward(struct image *pimage, float **pwl, float **pbl, float **pzl, fl
  
  returns: nothing
  */
-void feedforward2(struct image* pimage, struct neural_net* ANN, int FF_Evaluate, int debug)
+int feedforward2(struct image* pimage, struct neural_net* ANN, int FF_Evaluate, int debug)
 {
 
     if(debug == 0)
@@ -178,9 +178,21 @@ void feedforward2(struct image* pimage, struct neural_net* ANN, int FF_Evaluate,
     
     if (FF_Evaluate == 1)
     {
-        printf("\nImage into FF_Function (input to network): %d\n", pimage->digit);
-        printf("Output from FF_Function (output from network):\n");
-        print_matrix(ANN->pal[ANN->nr_of_layers-1],  *((ANN->neurons)+ANN->nr_of_layers-1), 1);
+        //printf("\nImage into FF_Function (input to network): %d\n", pimage->digit);
+        //printf("Output from FF_Function (output from network):\n");
+        //print_matrix(ANN->pal[ANN->nr_of_layers-1],  *((ANN->neurons)+ANN->nr_of_layers-1), 1);
+        if(pimage->digit == highest_index(ANN->pal[ANN->nr_of_layers-1], *((ANN->neurons)+ANN->nr_of_layers-1)))
+        {
+            //printf("output is correct, returning 1\n");
+            return 1;
+        }
+        else
+        {
+            //printf("output is not correct, returning 0\n");
+            return 0;
+        }
     }
+    
+    return 0;
     
 }

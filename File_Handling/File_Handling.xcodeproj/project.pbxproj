@@ -7,17 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9E316E6522DF65D80093A9AF /* File_IO.c in Sources */ = {isa = PBXBuildFile; fileRef = 9E316E6422DF65D80093A9AF /* File_IO.c */; };
-		9EDEAB3E22D20894006D4677 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 9EDEAB3D22D20894006D4677 /* main.c */; };
-		9EDEAB4622D2094D006D4677 /* feedforward.c in Sources */ = {isa = PBXBuildFile; fileRef = 9EDEAB4522D2094D006D4677 /* feedforward.c */; };
-		9EDEAB5622D291E2006D4677 /* random.c in Sources */ = {isa = PBXBuildFile; fileRef = 9EDEAB5522D291E2006D4677 /* random.c */; };
-		9EDEAB5922D3332A006D4677 /* SGD.c in Sources */ = {isa = PBXBuildFile; fileRef = 9EDEAB5822D3332A006D4677 /* SGD.c */; };
-		9EDEAB5C22D3434C006D4677 /* sigmoid.c in Sources */ = {isa = PBXBuildFile; fileRef = 9EDEAB5A22D3434B006D4677 /* sigmoid.c */; };
-		9EDEAB5D22D3434C006D4677 /* matrix.c in Sources */ = {isa = PBXBuildFile; fileRef = 9EDEAB5B22D3434B006D4677 /* matrix.c */; };
+		9E316E5D22DF550A0093A9AF /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 9E316E5C22DF550A0093A9AF /* main.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		9EDEAB3822D20894006D4677 /* CopyFiles */ = {
+		9E316E5722DF550A0093A9AF /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -29,25 +23,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		9E316E6322DF65D80093A9AF /* File_IO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = File_IO.h; sourceTree = "<group>"; };
-		9E316E6422DF65D80093A9AF /* File_IO.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = File_IO.c; sourceTree = "<group>"; };
-		9EDEAB3A22D20894006D4677 /* Neural_Net_V2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Neural_Net_V2; sourceTree = BUILT_PRODUCTS_DIR; };
-		9EDEAB3D22D20894006D4677 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
-		9EDEAB4422D2094D006D4677 /* feedforward.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = feedforward.h; sourceTree = "<group>"; };
-		9EDEAB4522D2094D006D4677 /* feedforward.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = feedforward.c; sourceTree = "<group>"; };
-		9EDEAB4A22D20A86006D4677 /* main.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = main.h; sourceTree = "<group>"; };
-		9EDEAB5422D291E2006D4677 /* random.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = random.h; sourceTree = "<group>"; };
-		9EDEAB5522D291E2006D4677 /* random.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = random.c; sourceTree = "<group>"; };
-		9EDEAB5722D3332A006D4677 /* SGD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGD.h; sourceTree = "<group>"; };
-		9EDEAB5822D3332A006D4677 /* SGD.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = SGD.c; sourceTree = "<group>"; };
-		9EDEAB5A22D3434B006D4677 /* sigmoid.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sigmoid.c; sourceTree = "<group>"; };
-		9EDEAB5B22D3434B006D4677 /* matrix.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = matrix.c; sourceTree = "<group>"; };
-		9EDEAB5E22D3440B006D4677 /* sigmoid.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sigmoid.h; sourceTree = "<group>"; };
-		9EDEAB5F22D3448C006D4677 /* matrix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = matrix.h; sourceTree = "<group>"; };
+		9E316E5922DF550A0093A9AF /* File_Handling */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = File_Handling; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E316E5C22DF550A0093A9AF /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		9EDEAB3722D20894006D4677 /* Frameworks */ = {
+		9E316E5622DF550A0093A9AF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -57,113 +38,94 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9EDEAB3122D20894006D4677 = {
+		9E316E5022DF55090093A9AF = {
 			isa = PBXGroup;
 			children = (
-				9EDEAB3C22D20894006D4677 /* Neural_Net_V2 */,
-				9EDEAB3B22D20894006D4677 /* Products */,
+				9E316E5B22DF550A0093A9AF /* File_Handling */,
+				9E316E5A22DF550A0093A9AF /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		9EDEAB3B22D20894006D4677 /* Products */ = {
+		9E316E5A22DF550A0093A9AF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9EDEAB3A22D20894006D4677 /* Neural_Net_V2 */,
+				9E316E5922DF550A0093A9AF /* File_Handling */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9EDEAB3C22D20894006D4677 /* Neural_Net_V2 */ = {
+		9E316E5B22DF550A0093A9AF /* File_Handling */ = {
 			isa = PBXGroup;
 			children = (
-				9EDEAB5B22D3434B006D4677 /* matrix.c */,
-				9EDEAB5A22D3434B006D4677 /* sigmoid.c */,
-				9EDEAB4A22D20A86006D4677 /* main.h */,
-				9EDEAB3D22D20894006D4677 /* main.c */,
-				9EDEAB4422D2094D006D4677 /* feedforward.h */,
-				9EDEAB4522D2094D006D4677 /* feedforward.c */,
-				9EDEAB5422D291E2006D4677 /* random.h */,
-				9EDEAB5522D291E2006D4677 /* random.c */,
-				9EDEAB5722D3332A006D4677 /* SGD.h */,
-				9EDEAB5822D3332A006D4677 /* SGD.c */,
-				9EDEAB5E22D3440B006D4677 /* sigmoid.h */,
-				9EDEAB5F22D3448C006D4677 /* matrix.h */,
-				9E316E6322DF65D80093A9AF /* File_IO.h */,
-				9E316E6422DF65D80093A9AF /* File_IO.c */,
+				9E316E5C22DF550A0093A9AF /* main.c */,
 			);
-			path = Neural_Net_V2;
+			path = File_Handling;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9EDEAB3922D20894006D4677 /* Neural_Net_V2 */ = {
+		9E316E5822DF550A0093A9AF /* File_Handling */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9EDEAB4122D20894006D4677 /* Build configuration list for PBXNativeTarget "Neural_Net_V2" */;
+			buildConfigurationList = 9E316E6022DF550A0093A9AF /* Build configuration list for PBXNativeTarget "File_Handling" */;
 			buildPhases = (
-				9EDEAB3622D20894006D4677 /* Sources */,
-				9EDEAB3722D20894006D4677 /* Frameworks */,
-				9EDEAB3822D20894006D4677 /* CopyFiles */,
+				9E316E5522DF550A0093A9AF /* Sources */,
+				9E316E5622DF550A0093A9AF /* Frameworks */,
+				9E316E5722DF550A0093A9AF /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Neural_Net_V2;
-			productName = Neural_Net_V2;
-			productReference = 9EDEAB3A22D20894006D4677 /* Neural_Net_V2 */;
+			name = File_Handling;
+			productName = File_Handling;
+			productReference = 9E316E5922DF550A0093A9AF /* File_Handling */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		9EDEAB3222D20894006D4677 /* Project object */ = {
+		9E316E5122DF55090093A9AF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Mauricio Paulusma";
 				TargetAttributes = {
-					9EDEAB3922D20894006D4677 = {
+					9E316E5822DF550A0093A9AF = {
 						CreatedOnToolsVersion = 9.3;
 					};
 				};
 			};
-			buildConfigurationList = 9EDEAB3522D20894006D4677 /* Build configuration list for PBXProject "Neural_Net_V2" */;
+			buildConfigurationList = 9E316E5422DF55090093A9AF /* Build configuration list for PBXProject "File_Handling" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 9EDEAB3122D20894006D4677;
-			productRefGroup = 9EDEAB3B22D20894006D4677 /* Products */;
+			mainGroup = 9E316E5022DF55090093A9AF;
+			productRefGroup = 9E316E5A22DF550A0093A9AF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9EDEAB3922D20894006D4677 /* Neural_Net_V2 */,
+				9E316E5822DF550A0093A9AF /* File_Handling */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		9EDEAB3622D20894006D4677 /* Sources */ = {
+		9E316E5522DF550A0093A9AF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9EDEAB5922D3332A006D4677 /* SGD.c in Sources */,
-				9EDEAB5C22D3434C006D4677 /* sigmoid.c in Sources */,
-				9EDEAB3E22D20894006D4677 /* main.c in Sources */,
-				9E316E6522DF65D80093A9AF /* File_IO.c in Sources */,
-				9EDEAB4622D2094D006D4677 /* feedforward.c in Sources */,
-				9EDEAB5622D291E2006D4677 /* random.c in Sources */,
-				9EDEAB5D22D3434C006D4677 /* matrix.c in Sources */,
+				9E316E5D22DF550A0093A9AF /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		9EDEAB3F22D20894006D4677 /* Debug */ = {
+		9E316E5E22DF550A0093A9AF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -221,7 +183,7 @@
 			};
 			name = Debug;
 		};
-		9EDEAB4022D20894006D4677 /* Release */ = {
+		9E316E5F22DF550A0093A9AF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -272,7 +234,7 @@
 			};
 			name = Release;
 		};
-		9EDEAB4222D20894006D4677 /* Debug */ = {
+		9E316E6122DF550A0093A9AF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -280,7 +242,7 @@
 			};
 			name = Debug;
 		};
-		9EDEAB4322D20894006D4677 /* Release */ = {
+		9E316E6222DF550A0093A9AF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -291,25 +253,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9EDEAB3522D20894006D4677 /* Build configuration list for PBXProject "Neural_Net_V2" */ = {
+		9E316E5422DF55090093A9AF /* Build configuration list for PBXProject "File_Handling" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9EDEAB3F22D20894006D4677 /* Debug */,
-				9EDEAB4022D20894006D4677 /* Release */,
+				9E316E5E22DF550A0093A9AF /* Debug */,
+				9E316E5F22DF550A0093A9AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9EDEAB4122D20894006D4677 /* Build configuration list for PBXNativeTarget "Neural_Net_V2" */ = {
+		9E316E6022DF550A0093A9AF /* Build configuration list for PBXNativeTarget "File_Handling" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9EDEAB4222D20894006D4677 /* Debug */,
-				9EDEAB4322D20894006D4677 /* Release */,
+				9E316E6122DF550A0093A9AF /* Debug */,
+				9E316E6222DF550A0093A9AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 9EDEAB3222D20894006D4677 /* Project object */;
+	rootObject = 9E316E5122DF55090093A9AF /* Project object */;
 }

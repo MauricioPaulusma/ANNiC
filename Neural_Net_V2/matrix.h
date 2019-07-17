@@ -24,5 +24,6 @@ float give_matrix(float *pm, int scol, int row, int col);
 float sigmoid_prime(float z);
 float sigmoid(float z);
 void memclear(void *pmem, int size);
+int highest_index(void* pmatrix, int n_row);
 
 #endif /* matrix_h */

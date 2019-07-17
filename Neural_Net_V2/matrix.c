@@ -311,3 +311,30 @@ void memclear(void *pmem, int size)
         *(pchar+i) = 0;
     }
 }
+
+/*
+ Name function: highest_index
+ 
+ Description:
+ This function returns the index number of the element of the vector with the heighest value
+ 
+ Usage:
+ void* pmatrix = pointer to the block of memory that reperesents the matrix
+ int n_row = number of rows that the matrix contains (i.e. sizeof(int) * n_row of bytes)
+ 
+ Returns: Index number of the element containign the highest value
+ */
+int highest_index(void* pmatrix, int n_row)
+{
+    int highest_index_nr = 0;
+    float value = 0;
+    for (int i = 0; i<n_row; i++)
+    {
+        if(give_matrix(pmatrix, 1, i, 0) > value)
+        {
+            value = give_matrix(pmatrix, 1, i, 0);
+            highest_index_nr = i;
+        }
+    }
+    return highest_index_nr;
+}

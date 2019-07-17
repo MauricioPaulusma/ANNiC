@@ -8,11 +8,17 @@
 /*
  Other defines
 */
-#define TRAINING_SIZE 50000
-#define BATCH_SIZE 20
+#define TRAINING_SIZE 50000 // size of the training data set
+#define TEST_SIZE 10000 // size of the test data set
+#define BATCH_SIZE 200 // mini-batch size
+#define ETA 0.1 // learning rate
+#define EPOCH 2
+#define LAYERS 4
+
 #define ROWS 28
 #define COLL 28
-#define LAYERS 5
+
+
 
 /*
  Structure for holding the training data
